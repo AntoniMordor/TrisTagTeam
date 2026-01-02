@@ -267,6 +267,8 @@ public class LogicGame {
 
         // TODO: CONTINUARE A TESTARE IL GIOCO E SISTEMARE I BUG
 
+        // TODO: AGGIUNGERE BONUS E MALUS PER I GIOCATORI E TEAM
+
     }
 
     public static boolean checkWin() {
