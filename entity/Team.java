@@ -47,13 +47,13 @@ public class Team {
           return teamScore;
      }
 
-     public void setTeamScore() {
+     public void setTeamScore(int bonusMalusPunteggio) {
 
           int totalScore = 0;
           for (Player p : players) {
                totalScore += p.getScore();
           }
-          this.teamScore = totalScore;
+          this.teamScore = totalScore + bonusMalusPunteggio;
      }
 
      public void resetTeamScore() {

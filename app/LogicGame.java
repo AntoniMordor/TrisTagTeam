@@ -180,7 +180,7 @@ public class LogicGame {
                     // Aggiorna il punteggio del team vincitore
                     for (Team team : teams) {
                         if (team.getSymbol() == winnerSymbol) {
-                            team.setTeamScore(); // Ricalcola il punteggio del team
+                            bonusMalusPunteggio(); // Ricalcola il punteggio del team
                         }
                     }
                 }
@@ -298,6 +298,31 @@ public class LogicGame {
         }
 
         return false;
+    }
+
+    // Metodo per applicare bonus e malus ai punteggi dei team in base al nome del
+    // team
+    public static void bonusMalusPunteggio() {
+
+        for (Team team : teams) {
+
+            switch (team.getNameTeam().toLowerCase()) {
+
+                // CASISTICA BONUS E MALUS:
+                case "sayan":
+                    team.setTeamScore(team.getTeamScore() * 2); // Aggiungi il doppio del punteggio come bonus
+                    break;
+
+                case "gino":
+                    team.setTeamScore(team.getTeamScore() - 2); // Sottrai 2 punti come malus
+                    break;
+                default:
+                    // CASISTICA NESSUN CAMBIAMENTO:
+                    team.setTeamScore(0); // Nessun cambiamento
+                    break;
+            }
+
+        }
     }
 
     public static void clearScreen() { // metodo per pulire la console sia su Windows che su Linux/macOS
