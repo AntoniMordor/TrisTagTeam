@@ -5,6 +5,7 @@ import entity.Team;
 import entity.Player;
 import java.util.Scanner;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.io.IOException;
 
@@ -61,13 +62,28 @@ public class Main {
 
             GraphicInterface();
 
-            System.out.println("\n\nBENVENUTO IN TRIS TAG TEAM GAME!");
-            System.out.println("1)Gioca");
-            System.out.println("2)Esci");
-            System.out.print("-> ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // consumare il newline
+            boolean validInput = false;
+            // entro nel ciclo finché l'input è falso
+            while (!validInput) {
+                try {
+                    System.out.println("\n\nBENVENUTO IN TRIS TAG TEAM GAME!");
+                    System.out.println("1)Gioca");
+                    System.out.println("2)Esci");
+                    System.out.print("-> ");
+                    choice = scanner.nextInt();
+                    validInput = true;
+                } catch (InputMismatchException e) {
+
+                    System.out.println("Input non valido. Per favore, inserisci un numero. Inserire 1 oppure 2.");
+                    // scanner.next(); // consumare l'input non valido
+
+                } finally {
+                    scanner.nextLine(); // consumare il newline
+                }
+
+            }
             LogicGame.clearScreen();
+
             if (choice == 1) {
 
                 System.out.println("I nomi dei due team scelti sono i seguenti:");

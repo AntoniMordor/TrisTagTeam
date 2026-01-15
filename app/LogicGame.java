@@ -114,6 +114,7 @@ public class LogicGame {
 
     public static void startGame(boolean esci) {
 
+        // TODO: INSERISCI I TRY-CATCH OPPORTUNI SUGLI INPUT DELLE COORDINATE...
         Random random = new Random();
 
         int counter = random.nextInt(10) + 1;
@@ -216,8 +217,6 @@ public class LogicGame {
 
             // Mostra la classifica finale se si esce e c'è un vincitore
             if (esci == true && checkWin() == true) {
-                // TODO: DA AGGIUNGERE LA CLASSIFICA FINALE DEI PERSONAGGI E DEL TEAM VINCENTE
-                // DELLA PARTITA UNA VOLTA CHE SI ESCE DALLA PARTITA.
 
                 int punteggioMassimoTeam = 0;
                 int punteggioMassimoGiocatore = 0;
@@ -299,6 +298,9 @@ public class LogicGame {
 
         return false;
     }
+
+    // TODO: AGGIUNGERE TUTTI GLI OPPORTUNI TRY CATCH PER GESTIRE GLI ERRORI DI
+    // INPUT E ALTRO
 
     // Metodo per applicare bonus e malus ai punteggi dei team in base al nome del
     // team
